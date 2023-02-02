@@ -1,0 +1,57 @@
+<!-- Ao clicar no botão "Classificar Números", o JavaScript será 
+executado para classificar 6 números aleatórios diferentes e 
+exibir os resultados em uma tabela HTML. O script mantém um 
+registro de todos os sorteios realizados em uma matriz, numbersDrawn, 
+e a função updateTable e chamar a cada sorteio para atualizar o 
+conteúdo da tabela HTML.
+    Ao clicar no botão "Limpar Sorteio " O array numbersDraw será limpa
+ -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sorteio de Números</title>
+    <script>
+      let numbersDrawn = [];
+
+      function drawNumbers() {
+        let numbers = [];
+        while (numbers.length < 6) {
+          let randomNumber = Math.floor(Math.random() * 60) + 1;
+          if (numbers.indexOf(randomNumber) === -1) {
+            numbers.push(randomNumber);
+          }
+        }
+        numbersDrawn.push(numbers);
+        updateTable();
+      }
+
+      function clearNumbers() {
+        numbersDrawn = [];
+        updateTable();
+      }
+
+      function updateTable() {
+        let tableBody = "";
+        for (let i = 0; i < numbersDrawn.length; i++) {
+          tableBody += "<tr><td>" + (i + 1) + "</td><td>" + numbersDrawn[i].join(", ") + "</td></tr>";
+        }
+        document.getElementById("numbersTable").innerHTML = tableBody;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sorteio de Números</h1>
+    <button onclick="drawNumbers()">Sortear Números</button>
+    <button onclick="clearNumbers()">Limpar Sorteios</button>
+    <br><br>
+    <table id="numbersTable">
+      <thead>
+        <tr>
+          <th>Sorteio</th>
+          <th>Números Sorteados</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>

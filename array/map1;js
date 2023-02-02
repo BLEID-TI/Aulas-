@@ -1,0 +1,28 @@
+// map serve pra transformar um array em outro
+
+const nums = [1, 2, 3, 4, 5]
+
+// gerando os elementos em dobro do array original 
+
+// map é um for com proposito
+
+// vamos amarzenar um arrary um uma resultante
+
+let resultado = nums.map(function(elemento){
+    return elemento * 2
+})
+
+console.log(resultado , nums
+    
+    // map não trasnforma array atual ele gera um novo array 
+    
+    )
+
+const somar10 = elemento => elemento + 10
+const triplo = elemento => elemento * 3
+const paraDinheiro = elemento => `R$ ${parseFloat(elemento).toFixed(2).replace('.',',')}` // modificndo elemento para real fiando 2 casas decimais e subistituindo . por , 
+
+
+resultado = nums.map(somar10).map(triplo).map(paraDinheiro)
+
+console.log(resultado)
